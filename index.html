@@ -2,25 +2,25 @@
 <html>
 	<head>
 		<script>
-		function onSubmit() {
-			var x = document.getElementByID("input_code").value;
-			if (x == "") {
-				document.getElementById("editMe").innerHTML = "Empty";
-				return;
-			}
-			if (x == "is douglas kiang secretly thanos?")
-			{
-				alert("yes");
-				return;
-			}
-			var bracket_amt = (x.match(/{/g)||[]).length;
-			var semicolon_amt = (x.match(/;/g)||[]).length;
-			document.getElementById("editMe").innerHTML = "Relative code length: " + (bracket_amt + semicolon_amt) + " lines.";
-		}
+			window.setInterval(function(){
+				var x = document.getElementById("input_code").value;
+				if (x == "") {
+					document.getElementById("editMe").innerHTML = "Empty";
+					return;
+				}
+				if (x == "is douglas kiang secretly thanos?")
+				{
+					document.getElementById("editMe").innerHTML = "yes";
+					return;
+				}
+				var bracket_amt = (x.match(/{/g)||[]).length;
+				var semicolon_amt = (x.match(/;/g)||[]).length;
+				document.getElementById("editMe").innerHTML = "Relative code length: " + (bracket_amt + semicolon_amt) + " lines.";
+			}, 1000); // run every second
 		</script>
 	</head>
 	<body>
-		<input type="button" value="Check length" onclick="onSubmit();">
+		<h1>Code Length Calculator</h1>
 		<br><br>
 		<textarea rows="20" cols="50" id="input_code">Input code here</textarea>
 		<p id="editMe">Relative code length: 0 lines.</p>
