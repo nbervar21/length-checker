@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+		function submitForm() {
+			var x = document.forms["codeForm"]["input_code"].value;
+			if (x == "") {
+				alert("This is empty.");
+				return;
+			}
+			if (x == "is douglas kiang secretly thanos?")
+			{
+				alert("yes");
+				return;
+			}
+			var bracket_amt = (x.match(/{/g)||[]).length;
+			var semicolon_amt = (x.match(/;/g)||[]).length;
+			alert("Relative code length: " + (bracket_amt + semicolon_amt) + " lines.");
+		}
+		</script>
+	</head>
+	<body>
+		<form name="codeForm" onsubmit="submitForm()" method="post">
+			<input type="submit" value="Check length">
+			<br><br>
+			<textarea rows="20" cols="50" name="input_code">Input code here</textarea>
+		</form>
+	</body>
+</html>
