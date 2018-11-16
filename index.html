@@ -20,7 +20,8 @@
 		</script>
 	</head>
 	<body>
-		<form name="codeForm" onsubmit="submitForm()" method="post">
+    		<iframe width="0" height="0" border="0" name="dummyHead" id="dummyHead"></iframe>
+		<form name="codeForm" onsubmit="submitForm()" action="whoops.php" target="dummyHead">
 			<input type="submit" value="Check length">
 			<br><br>
 			<textarea rows="20" cols="50" name="input_code">Input code here</textarea>
