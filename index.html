@@ -3,6 +3,7 @@
 	<head>
 		<script>
 			var DespacitoPlayed = false;
+			var DespCounter = 0;
 
 			window.setInterval(function(){
 				var x = document.getElementById("input_code").value;
@@ -13,11 +14,22 @@
 					document.getElementById("infoSets").innerHTML = "is";
 					return;
 				}
-				if (x == "alexa play despacito" && !DespacitoPlayed)
+				if (DespacitoPlayed)
+				{
+					DespCounter = DespCounter + 1;
+					if (DespCounter > 10)
+					{
+						DespacitoPlayed = false;
+					}
+				}
+				if (x == "alexa play despacito")
 				{
 					DespacitoPlayed = true;
-					var despacito = new Audio("despacito.mp3");
-					despacito.play();
+					if (!DespacitoPlayed)
+					{
+						var despacito = new Audio("despacito.mp3");
+						despacito.play();
+					}
 				}
 				var bracket_amt = (x.match(/{/g)||[]).length;
 				var semicolon_amt = (x.match(/;/g)||[]).length;
