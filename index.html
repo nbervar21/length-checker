@@ -22,14 +22,11 @@
 						DespacitoPlayed = false;
 					}
 				}
-				if (x == "alexa play despacito")
+				if (x == "alexa play despacito" && !DespacitoPlayed)
 				{
 					DespacitoPlayed = true;
-					if (!DespacitoPlayed)
-					{
-						var despacito = new Audio("despacito.mp3");
-						despacito.play();
-					}
+					var despacito = new Audio("despacito.mp3");
+					despacito.play();
 				}
 				var bracket_amt = (x.match(/{/g)||[]).length;
 				var semicolon_amt = (x.match(/;/g)||[]).length;
