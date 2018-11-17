@@ -4,10 +4,6 @@
 		<script>
 			window.setInterval(function(){
 				var x = document.getElementById("input_code").value;
-				if (x == "") {
-					document.getElementById("editMe").innerHTML = "Empty";
-					return;
-				}
 				if (x == "is douglas kiang secretly thanos?")
 				{
 					document.getElementById("editMe").innerHTML = "yes";
@@ -15,13 +11,19 @@
 				}
 				var bracket_amt = (x.match(/{/g)||[]).length;
 				var semicolon_amt = (x.match(/;/g)||[]).length;
-				document.getElementById("editMe").innerHTML = "Relative code length: " + (bracket_amt + semicolon_amt) + " lines.";
+				document.getElementById("infoCodeLength").innerHTML = "Lines: " + (bracket_amt + semicolon_amt);
+				document.getElementById("infoDeclarations").innerHTML = "Declarations: " + semicolon_amt;
+				document.getElementById("infoSets").innerHTML = "Sets: " + bracket_amt;
 			}, 1000); // run every second
 		</script>
 	</head>
 	<body>
 		<h1>Code Length Calculator</h1>
 		<textarea rows="20" cols="50" id="input_code" style="font-family:'Courier New'">Input code here</textarea>
-		<p id="editMe">Relative code length: 0 lines.</p>
+		<p id="infoCodeLength">Lines: 0</p>
+		<p id="infoDeclarations">Declarations: 0</p>
+		<p id="infoSets">Sets: 0</p>
+		<strong>REMEMBER: SHORTER =/= BETTER</strong>
+	</body>
 	</body>
 </html>
