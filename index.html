@@ -2,6 +2,8 @@
 <html>
 	<head>
 		<script>
+			var DespacitoPlayed = false;
+
 			window.setInterval(function(){
 				var x = document.getElementById("input_code").value;
 				if (x == "is douglas kiang secretly thanos?")
@@ -10,6 +12,12 @@
 					document.getElementById("infoDeclarations").innerHTML = "he";
 					document.getElementById("infoSets").innerHTML = "is";
 					return;
+				}
+				if (x == "alexa play despacito" && !DespacitoPlayed)
+				{
+					DespacitoPlayed = true;
+					var despacito = new Audio("despacito.mp3");
+					despacito.play();
 				}
 				var bracket_amt = (x.match(/{/g)||[]).length;
 				var semicolon_amt = (x.match(/;/g)||[]).length;
